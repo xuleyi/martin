@@ -39,7 +39,7 @@ int main()
         printf("pid = %d, ppid = %d\n", getpid(), getppid());
         ptrace(PTRACE_TRACEME, 0, 0, 0);//no signal sent, childpr continues
         kill(getpid(), SIGINT);//delivers a signal->stop, ready to be traced
-        execl("./file", "file", NULL);//-> stop again	
+        execl("./command", "command", NULL);//-> stop again	
     } else {
         wait(&status);
 	printf("ready to trace\n");
