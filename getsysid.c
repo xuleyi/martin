@@ -96,16 +96,19 @@ int main()
 		flag = TRUE;
 }
 
-sort_freq(mycmd,l);
-
-       for(  i = 0; i < l; i++ )
+	sort_freq(mycmd,l);
+	FILE* fc = fopen("file.txt", "a"); 
+	for(  i = 0; i < l; i++ )
         {
 		printf("ID[%d]: %d\n",i,mycmd[i].ID);
 		printf("Freq[%d]: %d\n",i,mycmd[i].Freq);
 		printf("NAME[%d]: %s\n",i,mycmd[i].Name);
+		fprintf(fc,"ID[%d]: %d\n",i,mycmd[i].ID);
+		fprintf(fc,"Freq[%d]: %d\n",i,mycmd[i].Freq);
+		fprintf(fc,"NAME[%d]: %s\n",i,mycmd[i].Name);
 	   }	
-//printf("size of l:%d\n",l);
-//printf("length of arrary : %ld\n",sizeof(mycmd)/sizeof(mycmd[0]));
+	fclose(fc);
+
 
 /*process the result*/
 			return 0;
